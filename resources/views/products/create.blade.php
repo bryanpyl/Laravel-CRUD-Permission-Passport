@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('products.store') }}" method="POST">
+    <form action="{{ route('products.store') }}" method="POST" onsubmit="return showAlert()">
     	@csrf
          <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
@@ -38,6 +38,12 @@
 		            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
 		        </div>
 		    </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Price (in RM):</strong>
+		            <input type="text" name="price" class="form-control" placeholder="Price">
+		        </div>
+		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 		            <button type="submit" class="btn btn-primary">Submit</button>
 		    </div>
@@ -45,4 +51,19 @@
     </form>
 
     <p class="text-center text-primary"><small>Confirm before submit</small></p>
+
+
+    <script>
+        function showAlert() {
+            // Show a confirmation alert to the user
+            if (confirm('Are you sure you want to submit this form?')) {
+                // If the user confirms, the form will be submitted
+                return true;
+            } else {
+                // If the user cancels, the form submission will be canceled
+                return false;
+            }
+        }
+    </script>
+
 @endsection
