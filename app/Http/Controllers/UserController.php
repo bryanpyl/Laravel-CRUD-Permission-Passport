@@ -66,24 +66,14 @@ class UserController extends Controller
                         ->with('success','User created successfully');
     }
     
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show($id): View
     {
         $user = User::find($id);
         return view('users.show',compact('user'));
     }
     
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id): View
     {
         $user = User::find($id);
@@ -93,13 +83,7 @@ class UserController extends Controller
         return view('users.edit',compact('user','roles','userRole'));
     }
     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id): RedirectResponse
     {
         $this->validate($request, [
@@ -126,12 +110,7 @@ class UserController extends Controller
                         ->with('success','User updated successfully');
     }
     
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id): RedirectResponse
     {
         User::find($id)->delete();

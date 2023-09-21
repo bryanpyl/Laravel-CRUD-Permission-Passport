@@ -28,6 +28,7 @@
 @endif
 <br>
 
+
 <table class="table table-bordered">
  <tr>
    <th>No</th>
@@ -48,13 +49,13 @@
         $roleClass = '';
         switch($v) {
             case 'Admin':
-                $roleClass = 'green-pill';
+                $roleClass = 'pill green-pill';
                 break;
             case 'Manager':
-                $roleClass = 'orange-pill';
+                $roleClass = 'pill orange-pill';
                 break;
             case 'Guest':
-                $roleClass = 'grey-pill';
+                $roleClass = 'pill grey-pill';
                 break;
             // Add more cases for other roles if needed
         }
@@ -64,7 +65,7 @@
       @endif
     </td>
     <td>
-       <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
+       <a class="btn btn-info " href="{{ route('users.show',$user->id) }}">Show</a>
        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}

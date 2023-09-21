@@ -12,27 +12,35 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link href="../resources/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+
   
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
+
 <style>
-    html, body {
-        height: 100%;
-        margin: 0; 
-        padding: 0; 
-    }
+.card{
+    border-radius: 20px;
+}
 
-    body {
-        background: linear-gradient(to bottom, lightblue, lightgreen);
-    }
 
-    .container {
-        border-radius: 20px;
-    }
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 10px; /* Add margin between the cards */
+}
+
 </style>
+
 
 <body>
     <div id="app">
@@ -92,7 +100,6 @@
                 </div>
             </div>
         </nav>
-  
         <main>
             <div class="container">
                 <div class="row justify-content-center">
@@ -100,7 +107,7 @@
                         <p>
                             @yield('welcome')
                         </p>
-                        <div class="card">
+                        <div class="card shadow">
                             <div class="card-body">
                                 @yield('content')
                             </div>
