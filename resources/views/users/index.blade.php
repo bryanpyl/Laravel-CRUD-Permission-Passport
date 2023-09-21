@@ -77,4 +77,19 @@
 {!! $data->links('pagination::bootstrap-4') !!}
 
 <p class="text-center text-primary"><small>Last updated: {{ now()->format('j F Y (l)') }}</small></p>
+
+<script>
+  function confirmSubmit() {
+      return confirm('Are you sure you want to delete this product?');
+  }
+</script>
+
+<script>
+  // Add an onclick attribute to the delete button
+  const deleteButtons = document.querySelectorAll('.btn-danger');
+  deleteButtons.forEach(button => {
+      button.onclick = () => confirmSubmit();
+  });
+</script>
+
 @endsection

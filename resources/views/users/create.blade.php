@@ -23,7 +23,7 @@
   </div>
 @endif
 
-{!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'users.store','method'=>'POST', 'onsubmit' => 'return confirmSubmit()')) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -63,4 +63,11 @@
 
 <br>
 <p class="text-center text-primary"><small>Confirm before submit</small></p>
+
+<script>
+    function confirmSubmit() {
+      return confirm('Are you sure you want to submit the form?');
+    }
+</script>
+
 @endsection

@@ -46,7 +46,7 @@
 	        <td>{{ $product->detail }}</td>
             <td>{{ $product->price }}</td>
 	        <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST" onsubmit="return showAlert()">
+                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
                     @can('product-edit')
                     <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
@@ -67,17 +67,19 @@
 
     <p class="text-center text-primary"><small>Last updated: {{ now()->format('j F Y (l)') }}</small></p>
 
+    
     <script>
-        function showAlert() {
-            // Show a confirmation alert to the user
-            if (confirm('Are you sure you want to submit this form?')) {
-                // If the user confirms, the form will be submitted
-                return true;
-            } else {
-                // If the user cancels, the form submission will be canceled
-                return false;
-            }
+        function confirmSubmit() {
+            return confirm('Are you sure you want to delete this product?');
         }
+    </script>
+    
+    <script>
+        // Add an onclick attribute to the delete button
+        const deleteButtons = document.querySelectorAll('.btn-danger');
+        deleteButtons.forEach(button => {
+            button.onclick = () => confirmSubmit();
+        });
     </script>
 
 @endsection

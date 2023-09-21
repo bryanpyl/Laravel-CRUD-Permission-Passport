@@ -45,7 +45,7 @@
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-		            <button type="submit" class="btn btn-primary">Submit</button>
+		            <button type="submit" class="btn btn-primary" onclick="return confirmSubmit()">Submit</button>
 		    </div>
 		</div>
     </form>
@@ -54,15 +54,8 @@
 
 
     <script>
-        function showAlert() {
-            // Show a confirmation alert to the user
-            if (confirm('Are you sure you want to submit this form?')) {
-                // If the user confirms, the form will be submitted
-                return true;
-            } else {
-                // If the user cancels, the form submission will be canceled
-                return false;
-            }
+        function confirmSubmit() {
+            return confirm('Are you sure you want to submit the form?');
         }
     </script>
 

@@ -23,7 +23,7 @@
     </div>
 @endif
 
-{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
+{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id], , 'onsubmit' => 'return confirmDelete()']) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -49,4 +49,14 @@
 {!! Form::close() !!}
 
 <p class="text-center text-primary"><small>Confirm before submit</small></p>
+
+<script>
+    function confirmSubmit() {
+        if (confirm("Are you sure you want to submit the form?")) {
+            // User confirmed, submit the form
+            document.forms[0].submit(); // Assumes there's only one form on the page
+        }
+    }
+</script>
+
 @endsection

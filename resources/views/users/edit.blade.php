@@ -23,7 +23,7 @@
   </div>
 @endif
 
-{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
+{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id], , 'onsubmit' => 'return confirmSubmit()']) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -63,4 +63,15 @@
 
 <br>
 <p class="text-center text-primary"><small>Confirm before submit</small></p>
+
+
+<script>
+    function confirmSubmit() {
+        if (confirm("Are you sure you want to submit the form?")) {
+            // User confirmed, submit the form
+            document.forms[0].submit(); // Assumes there's only one form on the page
+        }
+    }
+</script>
+
 @endsection
