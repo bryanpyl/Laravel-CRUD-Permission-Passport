@@ -21,9 +21,16 @@ class GuestSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
         
-        $role = Role::create(['name' => 'Admin']);
+        $role = Role::create(['name' => 'Guest']);
          
-        $permissions = Permission::pluck('id','id')->all();
+        $permissions = Permission::whereIn('name', [
+            'user-list',
+            'user-create', 
+            'role-list', 
+            'product-list',
+            'product-create',
+            'product-edit'
+        ])->get();
        
         $role->syncPermissions($permissions);
          

@@ -23,7 +23,7 @@
     </div>
 @endif
 
-{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id], , 'onsubmit' => 'return confirmDelete()']) !!}
+{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id],'onsubmit' => 'return confirmSubmit()']) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -52,10 +52,7 @@
 
 <script>
     function confirmSubmit() {
-        if (confirm("Are you sure you want to submit the form?")) {
-            // User confirmed, submit the form
-            document.forms[0].submit(); // Assumes there's only one form on the page
-        }
+      return confirm('Are you sure you want to submit the form?');
     }
 </script>
 

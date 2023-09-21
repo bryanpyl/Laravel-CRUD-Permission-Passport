@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary" onclick="confirmSubmit()">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}

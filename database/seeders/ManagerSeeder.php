@@ -23,7 +23,14 @@ class ManagerSeeder extends Seeder
         
         $role = Role::create(['name' => 'Manager']);
          
-        $permissions = Permission::pluck('id','id')->all();
+        $permissions = Permission::whereIn('name', [
+            'user-list', 
+            'role-list', 
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete'
+        ])->get();
        
         $role->syncPermissions($permissions);
          
