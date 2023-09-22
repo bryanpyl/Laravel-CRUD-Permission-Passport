@@ -10,8 +10,10 @@ body {
     background: linear-gradient(to bottom, lightblue, lightgreen);
 }
 
-.card{
+.card {
     border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px; /* Add margin between the cards */
 }
 
 .pill {

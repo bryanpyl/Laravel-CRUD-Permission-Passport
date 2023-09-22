@@ -22,20 +22,9 @@
 
 
 <style>
-.card{
-    border-radius: 20px;
-}
-
-
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
 .card {
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 10px; /* Add margin between the cards */
 }
 
